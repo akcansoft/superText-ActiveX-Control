@@ -1,4 +1,5 @@
 VERSION 5.00
+Object = "*\AProject1.vbp"
 Begin VB.Form Form1 
    Caption         =   "Form1"
    ClientHeight    =   3090
@@ -9,66 +10,81 @@ Begin VB.Form Form1
    ScaleHeight     =   3090
    ScaleWidth      =   4680
    StartUpPosition =   3  'Windows Default
-   Begin VB.ListBox List1 
-      Height          =   2400
-      Left            =   2040
+   Begin SuperTextKontrol.superText superText7 
+      Height          =   375
+      Left            =   2760
+      TabIndex        =   7
+      Top             =   600
+      Width           =   1815
+      _extentx        =   3201
+      _extenty        =   661
+      metin           =   "superText7"
+      odakzeminrengi  =   33023
+   End
+   Begin SuperTextKontrol.superText superText6 
+      Height          =   375
+      Left            =   2760
       TabIndex        =   6
       Top             =   120
-      Width           =   2535
+      Width           =   1815
+      _extentx        =   3201
+      _extenty        =   661
+      metin           =   "superText6"
    End
-   Begin Project1.superText superText5 
+   Begin SuperTextKontrol.superText superText5 
       Height          =   375
       Left            =   120
       TabIndex        =   5
       Top             =   2040
-      Width           =   1815
-      _ExtentX        =   3201
-      _ExtentY        =   661
-      Metin           =   "superText5"
-      Giris           =   4
+      Width           =   2295
+      _extentx        =   4048
+      _extenty        =   661
+      metin           =   "superText5"
    End
-   Begin Project1.superText superText4 
+   Begin SuperTextKontrol.superText superText4 
       Height          =   375
       Left            =   120
       TabIndex        =   4
       Top             =   1560
-      Width           =   1815
-      _ExtentX        =   3201
-      _ExtentY        =   661
-      Metin           =   "superText4"
-      Giris           =   3
+      Width           =   2295
+      _extentx        =   4048
+      _extenty        =   661
+      metin           =   "superText4"
    End
-   Begin Project1.superText superText3 
-      Height          =   375
-      Left            =   120
-      TabIndex        =   3
-      Top             =   1080
-      Width           =   1815
-      _ExtentX        =   3201
-      _ExtentY        =   661
-      Metin           =   "superText3"
-      Giris           =   2
-   End
-   Begin Project1.superText superText2 
+   Begin SuperTextKontrol.superText superText3 
       Height          =   375
       Left            =   120
       TabIndex        =   2
-      Top             =   600
-      Width           =   1815
-      _ExtentX        =   3201
-      _ExtentY        =   661
-      Metin           =   "superText2"
-      Giris           =   1
+      Top             =   1080
+      Width           =   2295
+      _extentx        =   4048
+      _extenty        =   661
+      metin           =   "superText3"
+      odakzeminrengi  =   12632064
    End
-   Begin Project1.superText superText1 
+   Begin SuperTextKontrol.superText superText2 
       Height          =   375
       Left            =   120
       TabIndex        =   1
+      Top             =   600
+      Width           =   2295
+      _extentx        =   4048
+      _extenty        =   661
+      metin           =   "superText2"
+      odakzeminrengi  =   16744703
+   End
+   Begin SuperTextKontrol.superText superText1 
+      Height          =   375
+      Left            =   120
+      TabIndex        =   0
       Top             =   120
-      Width           =   1815
-      _ExtentX        =   3201
-      _ExtentY        =   661
-      Metin           =   "superText1"
+      Width           =   2295
+      _extentx        =   4895
+      _extenty        =   1085
+      metin           =   "superText1"
+      backcolor       =   12648447
+      forecolor       =   255
+      odakzeminrengi  =   12648384
    End
    Begin VB.Label Label1 
       Alignment       =   1  'Right Justify
@@ -86,7 +102,7 @@ Begin VB.Form Form1
       ForeColor       =   &H00FF0000&
       Height          =   195
       Left            =   1800
-      TabIndex        =   0
+      TabIndex        =   3
       Top             =   2760
       Width           =   2700
    End
@@ -96,14 +112,3 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub Form_Click()
-    superText1.Metin = "Merhaba"
-End Sub
-
-Private Sub superText1_Change()
-    List1.AddItem superText1.Metin
-End Sub
-
-Private Sub superText2_KeyPress(KeyAscii As Integer)
-    superText1.Metin = superText1.Metin & Chr(KeyAscii)
-End Sub

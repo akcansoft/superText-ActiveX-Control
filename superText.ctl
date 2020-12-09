@@ -20,11 +20,12 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = True
-'Mesut Akcan
-'© 2001 - 2020
+'©2020 Mesut Akcan
 'https://akcansoft.blogspot.com
 
 Dim mGiris As Byte 'giriþ deðeri
+Dim ozr As OLE_COLOR 'odak zemin rengi
+Dim gZeminRengi As OLE_COLOR 'geçici zemin rengi
 Enum stGiris
     Hepsi
     Sayý
@@ -37,8 +38,8 @@ Event Change()
 Event KeyPress(KeyAscii As Integer)
 
 Private Sub UserControl_InitProperties()
-    'Text1.Text = UserControl.Name
     Text1.Text = Extender.Name
+    ozr = vbWindowBackground 'odak zemin rengine varsayýlan deðeri ata
 End Sub
 
 Private Sub UserControl_Resize()
@@ -50,13 +51,16 @@ End With
 End Sub
 
 Private Sub Text1_GotFocus()
-    Text1.BackColor = vbYellow 'sarý
+    gZeminRengi = Text1.BackColor
+    Text1.BackColor = ozr 'odak zemin rengi
 End Sub
+
 Private Sub Text1_LostFocus()
-    Text1.BackColor = vbWindowBackground '&H80000005 'Zemin rengi
+    Text1.BackColor = gZeminRengi 'geçici zemin rengi
 End Sub
 
 Public Property Get Metin() As String
+Attribute Metin.VB_Description = "Kontrolün içerdiði metin"
     Metin = Text1.Text
 End Property
 
@@ -64,17 +68,8 @@ Public Property Let Metin(ByVal yeniDeger As String)
     Text1.Text = yeniDeger
 End Property
 
-Public Sub UserControl_ReadProperties(PropBag As PropertyBag)
-    Text1.Text = PropBag.ReadProperty("Metin", UserControl.Name)
-    mGiris = PropBag.ReadProperty("Giris", 0)
-End Sub
-
-Public Sub UserControl_WriteProperties(PropBag As PropertyBag)
-    Call PropBag.WriteProperty("Metin", Text1.Text, UserControl.Name)
-    Call PropBag.WriteProperty("Giris", mGiris, 0)
-End Sub
-
 Public Property Get Giris() As stGiris
+Attribute Giris.VB_Description = "Klavye giriþ tuþlarý kýsýtlamasý"
     Giris = mGiris
 End Property
 
@@ -130,3 +125,53 @@ Private Sub Text1_Change()
     RaiseEvent Change
 End Sub
 
+Public Property Get BackColor() As OLE_COLOR
+    BackColor = Text1.BackColor
+End Property
+
+Public Property Let BackColor(ByVal New_BackColor As OLE_COLOR)
+    Text1.BackColor() = New_BackColor
+    PropertyChanged "BackColor"
+End Property
+
+Public Property Get ForeColor() As OLE_COLOR
+    ForeColor = Text1.ForeColor
+End Property
+
+Public Property Let ForeColor(ByVal New_ForeColor As OLE_COLOR)
+    Text1.ForeColor() = New_ForeColor
+    PropertyChanged "ForeColor"
+End Property
+
+Public Property Get OdakZeminRengi() As OLE_COLOR
+Attribute OdakZeminRengi.VB_Description = "Odak, kontrolde iken zemin rengi"
+  OdakZeminRengi = ozr
+End Property
+
+Public Property Let OdakZeminRengi(ByVal c As OLE_COLOR)
+  ozr = c
+  PropertyChanged "OdakZeminRengi"
+End Property
+
+Public Sub UserControl_ReadProperties(PropBag As PropertyBag)
+    Text1.Text = PropBag.ReadProperty("Metin", UserControl.Name)
+    mGiris = PropBag.ReadProperty("Giris", 0)
+    Text1.BackColor = PropBag.ReadProperty("BackColor", vbWindowBackground)
+    Text1.ForeColor = PropBag.ReadProperty("ForeColor", vbWindowText)
+    ozr = PropBag.ReadProperty("OdakZeminRengi", vbWindowBackground)
+End Sub
+
+Public Sub UserControl_WriteProperties(PropBag As PropertyBag)
+    Call PropBag.WriteProperty("Metin", Text1.Text, UserControl.Name)
+    Call PropBag.WriteProperty("Giris", mGiris, 0)
+    Call PropBag.WriteProperty("BackColor", Text1.BackColor, vbWindowBackground)
+    Call PropBag.WriteProperty("ForeColor", Text1.ForeColor, vbWindowText)
+    Call PropBag.WriteProperty("OdakZeminRengi", ozr, vbWindowBackground)
+End Sub
+
+Sub Hakkinda()
+Attribute Hakkinda.VB_Description = "ActiveX kontrol hakkýnda"
+Attribute Hakkinda.VB_UserMemId = -552
+    MsgBox "superText ActiveX Kontrol" & vbCrLf & "©2020 Mesut Akcan" & vbCrLf & _
+        "Bu kontrol TextBox kontrolüne yeni kullanýþlý özellikler eklenerek geliþtirilmiþtir."
+End Sub

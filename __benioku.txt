@@ -1,11 +1,11 @@
 Buradaki dosyalar https://akcansoft.blogspot.com blog sayfamdaki
-Vb ile ActiveX Oluþturma Bölüm 5 için hazýr vbasic proje dosyalarýdýr.
+Vb ile ActiveX Oluþturma Bölüm 6 için hazýr vbasic proje dosyalarýdýr.
 
 Ýzin alýnmadan yayýnlanamaz.
 
 © Mesut Akcan
-16 Mart 2002
-Güncelleme: 19 Kasým 2020
+28 Kasým 2020
 
 https://akcansoft.blogspot.com
+www.youtube.com/mesutakcan
 makcan@gmail.com
