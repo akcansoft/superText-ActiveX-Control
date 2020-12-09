@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "*\AProject1.vbp"
+Object = "*\ASuperTextKontrol.vbp"
 Begin VB.Form Form1 
    Caption         =   "Form1"
    ClientHeight    =   3090
@@ -19,6 +19,15 @@ Begin VB.Form Form1
       _ExtentX        =   3625
       _ExtentY        =   661
       Metin           =   "superText8"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   162
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       OdakZeminRengi  =   -2147483640
       OdakYaziRengi   =   -2147483643
    End
@@ -31,6 +40,15 @@ Begin VB.Form Form1
       _ExtentX        =   3625
       _ExtentY        =   661
       Metin           =   "superText7"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   162
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       OdakZeminRengi  =   16576
       OdakYaziRengi   =   65535
    End
@@ -43,6 +61,15 @@ Begin VB.Form Form1
       _ExtentX        =   3625
       _ExtentY        =   661
       Metin           =   "superText6"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   162
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       OdakZeminRengi  =   16711680
       OdakYaziRengi   =   16776960
    End
@@ -55,6 +82,19 @@ Begin VB.Form Form1
       _ExtentX        =   4048
       _ExtentY        =   661
       Metin           =   "superText5"
+      ForeColor       =   49152
+      ForeColor       =   49152
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Verdana"
+         Size            =   12
+         Charset         =   162
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      OdakZeminRengi  =   32768
+      OdakYaziRengi   =   16777215
    End
    Begin SuperTextKontrol.superText superText4 
       Height          =   375
@@ -65,6 +105,15 @@ Begin VB.Form Form1
       _ExtentX        =   4048
       _ExtentY        =   661
       Metin           =   "superText4"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   162
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
    End
    Begin SuperTextKontrol.superText superText3 
       Height          =   375
@@ -76,6 +125,16 @@ Begin VB.Form Form1
       _ExtentY        =   661
       Metin           =   "superText3"
       ForeColor       =   16711680
+      ForeColor       =   16711680
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   162
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       OdakZeminRengi  =   12632064
    End
    Begin SuperTextKontrol.superText superText2 
@@ -87,6 +146,15 @@ Begin VB.Form Form1
       _ExtentX        =   4048
       _ExtentY        =   661
       Metin           =   "superText2"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   162
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       OdakZeminRengi  =   16744703
    End
    Begin SuperTextKontrol.superText superText1 
@@ -100,6 +168,17 @@ Begin VB.Form Form1
       Metin           =   "superText1"
       BackColor       =   12648447
       ForeColor       =   255
+      BackColor       =   12648447
+      ForeColor       =   255
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   162
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   -1  'True
+         Strikethrough   =   0   'False
+      EndProperty
       OdakZeminRengi  =   12648384
    End
    Begin SuperTextKontrol.superText superText9 
@@ -111,6 +190,15 @@ Begin VB.Form Form1
       _ExtentX        =   3625
       _ExtentY        =   661
       Metin           =   "superText9"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   162
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       OdakZeminRengi  =   -2147483640
       OdakYaziRengi   =   -2147483643
    End
@@ -123,6 +211,15 @@ Begin VB.Form Form1
       _ExtentX        =   3625
       _ExtentY        =   661
       Metin           =   "superText10"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   162
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       OdakZeminRengi  =   -2147483640
       OdakYaziRengi   =   -2147483643
    End
