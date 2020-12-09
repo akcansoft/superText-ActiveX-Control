@@ -1,16 +1,16 @@
 Type=Control
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\WINDOWS\system32\stdole2.tlb#OLE Automation
 UserControl=superText.ctl
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\WINDOWS\system32\stdole2.tlb#OLE Automation
 Startup="(None)"
 HelpFile=""
-Title="superText"
+Title="Project1"
 ExeName32="superText.ocx"
 Command32=""
-Name="superTextKontrol"
+Name="Project1"
 HelpContextID="0"
 CompatibleMode="1"
 CompatibleEXE32="superText.ocx"
-MajorVer=1
+MajorVer=2
 MinorVer=0
 RevisionVer=0
 AutoIncrementVer=0
@@ -31,8 +31,6 @@ Unattended=0
 Retained=0
 ThreadPerObject=0
 MaxNumberOfThreads=1
-DebugStartupOption=1
-DebugStartupComponent=superText
 
 [MS Transaction Server]
 AutoRefresh=1
