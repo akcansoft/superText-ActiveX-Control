@@ -1,2 +1,2 @@
-# superText-ActiveX-Control
+# akcanSoft superText ActiveX Control
 VB6 ile Geliştirilmiş TextBox projesi
