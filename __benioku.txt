@@ -1,10 +1,10 @@
 Buradaki dosyalar https://akcansoft.blogspot.com blog sayfamdaki
-Vb ile ActiveX Oluşturma Bölüm 9 için hazır vbasic proje dosyalarıdır.
+Vb ile ActiveX Oluşturma Bölüm 10 için hazır vbasic proje dosyalarıdır.
 
 İzin alınmadan yayınlanamaz.
 
 © Mesut Akcan
-8 Aralık 2020
+9 Aralık 2020
 
 makcan@gmail.com
 

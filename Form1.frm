@@ -5,20 +5,20 @@ Begin VB.Form Form1
    ClientHeight    =   3090
    ClientLeft      =   60
    ClientTop       =   450
-   ClientWidth     =   4680
+   ClientWidth     =   6540
    LinkTopic       =   "Form1"
    ScaleHeight     =   3090
-   ScaleWidth      =   4680
+   ScaleWidth      =   6540
    StartUpPosition =   3  'Windows Default
    Begin SuperTextKontrol.superText superText8 
       Height          =   375
-      Left            =   2520
+      Left            =   4320
       TabIndex        =   8
       Top             =   1080
       Width           =   2055
       _ExtentX        =   3625
       _ExtentY        =   661
-      Metin           =   "superText8"
+      Metin           =   ""
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -28,18 +28,19 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      Giris           =   2
       OdakZeminRengi  =   -2147483640
       OdakYaziRengi   =   -2147483643
    End
    Begin SuperTextKontrol.superText superText7 
       Height          =   375
-      Left            =   2520
+      Left            =   4320
       TabIndex        =   7
       Top             =   600
       Width           =   2055
       _ExtentX        =   3625
       _ExtentY        =   661
-      Metin           =   "superText7"
+      Metin           =   ""
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -49,18 +50,19 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      Giris           =   1
       OdakZeminRengi  =   16576
       OdakYaziRengi   =   65535
    End
    Begin SuperTextKontrol.superText superText6 
       Height          =   375
-      Left            =   2520
+      Left            =   4320
       TabIndex        =   6
       Top             =   120
       Width           =   2055
       _ExtentX        =   3625
       _ExtentY        =   661
-      Metin           =   "superText6"
+      Metin           =   ""
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -70,6 +72,7 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      Alignment       =   2
       OdakZeminRengi  =   16711680
       OdakYaziRengi   =   16776960
    End
@@ -114,6 +117,7 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      Alignment       =   1
    End
    Begin SuperTextKontrol.superText superText3 
       Height          =   375
@@ -179,17 +183,18 @@ Begin VB.Form Form1
          Italic          =   -1  'True
          Strikethrough   =   0   'False
       EndProperty
+      Alignment       =   1
       OdakZeminRengi  =   12648384
    End
    Begin SuperTextKontrol.superText superText9 
       Height          =   375
-      Left            =   2520
+      Left            =   4320
       TabIndex        =   9
       Top             =   1560
       Width           =   2055
       _ExtentX        =   3625
       _ExtentY        =   661
-      Metin           =   "superText9"
+      Metin           =   ""
       BackColor       =   16776960
       ForeColor       =   16711680
       BackColor       =   16776960
@@ -203,18 +208,19 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      Giris           =   3
       OdakZeminRengi  =   -2147483640
       OdakYaziRengi   =   -2147483643
    End
    Begin SuperTextKontrol.superText superText10 
       Height          =   375
-      Left            =   2520
+      Left            =   4320
       TabIndex        =   10
       Top             =   2040
       Width           =   2055
       _ExtentX        =   3625
       _ExtentY        =   661
-      Metin           =   "superText10"
+      Metin           =   ""
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -224,8 +230,49 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      Giris           =   4
       OdakZeminRengi  =   -2147483640
       OdakYaziRengi   =   -2147483643
+   End
+   Begin VB.Label Label6 
+      Caption         =   "küçük harf"
+      Height          =   255
+      Left            =   2880
+      TabIndex        =   15
+      Top             =   2160
+      Width           =   1335
+   End
+   Begin VB.Label Label5 
+      Caption         =   "BÜYÜK HARF"
+      Height          =   255
+      Left            =   2880
+      TabIndex        =   14
+      Top             =   1680
+      Width           =   1335
+   End
+   Begin VB.Label Label4 
+      Caption         =   "Harf"
+      Height          =   255
+      Left            =   2880
+      TabIndex        =   13
+      Top             =   1200
+      Width           =   1335
+   End
+   Begin VB.Label Label3 
+      Caption         =   "Sayý"
+      Height          =   255
+      Left            =   2880
+      TabIndex        =   12
+      Top             =   720
+      Width           =   1335
+   End
+   Begin VB.Label Label2 
+      Caption         =   "Hepsi"
+      Height          =   255
+      Left            =   2880
+      TabIndex        =   11
+      Top             =   240
+      Width           =   1335
    End
    Begin VB.Label Label1 
       Alignment       =   1  'Right Justify
@@ -242,7 +289,7 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H00FF0000&
       Height          =   195
-      Left            =   1800
+      Left            =   3600
       TabIndex        =   3
       Top             =   2760
       Width           =   2700

@@ -8,6 +8,51 @@ Begin VB.PropertyPage Yazi
    PaletteMode     =   0  'Halftone
    ScaleHeight     =   3495
    ScaleWidth      =   5925
+   Begin VB.ComboBox cmbGiris 
+      Height          =   315
+      ItemData        =   "Yazi.pgx":0000
+      Left            =   3000
+      List            =   "Yazi.pgx":0013
+      Style           =   2  'Dropdown List
+      TabIndex        =   14
+      Top             =   1400
+      Width           =   1455
+   End
+   Begin VB.Frame Frame1 
+      Caption         =   "Yaslama"
+      Height          =   735
+      Left            =   3000
+      TabIndex        =   9
+      Top             =   120
+      Width           =   2775
+      Begin VB.OptionButton optAlignment 
+         Caption         =   "Orta"
+         Height          =   375
+         Index           =   2
+         Left            =   1800
+         TabIndex        =   12
+         Top             =   240
+         Width           =   615
+      End
+      Begin VB.OptionButton optAlignment 
+         Caption         =   "Sað"
+         Height          =   375
+         Index           =   1
+         Left            =   960
+         TabIndex        =   11
+         Top             =   240
+         Width           =   615
+      End
+      Begin VB.OptionButton optAlignment 
+         Caption         =   "Sol"
+         Height          =   375
+         Index           =   0
+         Left            =   120
+         TabIndex        =   10
+         Top             =   240
+         Width           =   615
+      End
+   End
    Begin VB.TextBox txtMetin 
       Height          =   330
       Left            =   120
@@ -53,6 +98,14 @@ Begin VB.PropertyPage Yazi
       Top             =   2880
       Width           =   2700
    End
+   Begin VB.Label lblGiris 
+      Caption         =   "Giriþ kýtlamasý"
+      Height          =   255
+      Left            =   3000
+      TabIndex        =   13
+      Top             =   1080
+      Width           =   1455
+   End
    Begin VB.Label lblMetin 
       Caption         =   "Metin:"
       Height          =   240
@@ -83,6 +136,17 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = True
+Dim i_Alignment As Byte
+
+Private Sub cmbGiris_Click()
+    Changed = True
+End Sub
+
+Private Sub optAlignment_Click(Index As Integer)
+    Changed = True
+    i_Alignment = Index
+End Sub
+
 Private Sub txtMetin_Change()
     Changed = True
 End Sub
@@ -114,6 +178,8 @@ Private Sub PropertyPage_ApplyChanges()
     SelectedControls(0).MaxLength = txtMaxLength.Text
     SelectedControls(0).PasswordChar = txtPasswordChar.Text
     SelectedControls(0).RightToLeft = (chkRightToLeft.Value = vbChecked)
+    SelectedControls(0).Alignment = i_Alignment
+    SelectedControls(0).Giris = cmbGiris.ListIndex
 End Sub
 
 Private Sub PropertyPage_SelectionChanged()
@@ -123,5 +189,8 @@ Private Sub PropertyPage_SelectionChanged()
     txtMaxLength.Text = SelectedControls(0).MaxLength
     txtPasswordChar.Text = SelectedControls(0).PasswordChar
     chkRightToLeft.Value = (SelectedControls(0).RightToLeft And vbChecked)
+    optAlignment(SelectedControls(0).Alignment).Value = True
+    cmbGiris.ListIndex = SelectedControls(0).Giris
 End Sub
+
 

@@ -2,7 +2,7 @@ VERSION 5.00
 Begin VB.Form frmAbout 
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "About MyApp"
-   ClientHeight    =   3555
+   ClientHeight    =   3690
    ClientLeft      =   2340
    ClientTop       =   1935
    ClientWidth     =   5730
@@ -10,7 +10,7 @@ Begin VB.Form frmAbout
    LinkTopic       =   "Form2"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   2453.724
+   ScaleHeight     =   2546.904
    ScaleMode       =   0  'User
    ScaleWidth      =   5380.766
    ShowInTaskbar   =   0   'False
@@ -32,7 +32,7 @@ Begin VB.Form frmAbout
       Caption         =   "Tamam"
       Default         =   -1  'True
       Height          =   345
-      Left            =   4125
+      Left            =   4245
       TabIndex        =   0
       Top             =   2625
       Width           =   1380
@@ -40,9 +40,9 @@ Begin VB.Form frmAbout
    Begin VB.CommandButton cmdSysInfo 
       Caption         =   "&System Bilgileri..."
       Height          =   345
-      Left            =   4140
+      Left            =   4260
       TabIndex        =   2
-      Top             =   3075
+      Top             =   3195
       Width           =   1365
    End
    Begin VB.Line Line1 
@@ -55,7 +55,6 @@ Begin VB.Form frmAbout
       Y2              =   1687.583
    End
    Begin VB.Label lblDescription 
-      Caption         =   "App Description"
       ForeColor       =   &H00000000&
       Height          =   1170
       Left            =   1050
@@ -90,13 +89,12 @@ Begin VB.Form frmAbout
       Width           =   3885
    End
    Begin VB.Label lblDisclaimer 
-      Caption         =   "Warning: ..."
       ForeColor       =   &H00000000&
-      Height          =   825
+      Height          =   1065
       Left            =   255
       TabIndex        =   4
-      Top             =   2625
-      Width           =   3750
+      Top             =   2505
+      Width           =   3870
    End
 End
 Attribute VB_Name = "frmAbout"
@@ -146,6 +144,11 @@ Private Sub Form_Load()
     Me.Caption = App.Title & " Hakkýnda"
     lblVersion.Caption = "Version " & App.Major & "." & App.Minor & "." & App.Revision
     lblTitle.Caption = App.Title
+    lblDescription.Caption = "akcanSoft superText ActiveX Kontrol." & vbCr & _
+      App.Comments
+    lblDisclaimer.Caption = "Uyarý:" & vbCr & "Bu ActiveX kontrolün hiçbir GARANTÝSÝ YOKTUR." & vbCr & _
+      "Kullanýmdan kaynaklanan zararlarda kullanýcý sorumludur." & vbCr & _
+      "Kontrolü kullanarak bu kuralý kabul etmiþ olursunuz."
 End Sub
 
 Public Sub StartSysInfo()
