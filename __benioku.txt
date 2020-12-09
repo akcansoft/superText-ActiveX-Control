@@ -1,11 +1,15 @@
 Buradaki dosyalar https://akcansoft.blogspot.com blog sayfamdaki
-Vb ile ActiveX Oluşturma Bölüm 6 için hazır vbasic proje dosyalarıdır.
+Vb ile ActiveX OluÅŸturma BÃ¶lÃ¼m 7 iÃ§in hazÄ±r vbasic proje dosyalarÄ±dÄ±r.
 
-İzin alınmadan yayınlanamaz.
+Ä°zin alÄ±nmadan yayÄ±nlanamaz.
 
-© Mesut Akcan
-28 Kasım 2020
+Â© Mesut Akcan
+1 AralÄ±k 2020
 
 https://akcansoft.blogspot.com
 www.youtube.com/mesutakcan
 makcan@gmail.com
+twitter.com/mesutakcan
+twitter.com/akcansoft
+facebook.com/akcansoft
+instagram.com/akcansoft

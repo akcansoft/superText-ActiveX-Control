@@ -1,7 +1,7 @@
 Type=Exe
 Form=Form1.frm
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\WINDOWS\system32\stdole2.tlb#OLE Automation
-Object={72D7C12F-C7C1-433A-AEAA-1CE74685FAA4}#1.0#0; superText.ocx
+Object={1E330407-B542-4DC4-BBFB-350BC2F06750}#1.0#0; superText.ocx
 IconForm="Form1"
 Startup="Form1"
 HelpFile=""
