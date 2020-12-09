@@ -5,6 +5,7 @@ Begin VB.UserControl superText
    ClientTop       =   0
    ClientWidth     =   4170
    DataSourceBehavior=   1  'vbDataSource
+   PropertyPages   =   "superText.ctx":0000
    ScaleHeight     =   3210
    ScaleWidth      =   4170
    Begin VB.TextBox Text1 
@@ -21,8 +22,9 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = True
+Attribute VB_Ext_KEY = "PropPageWizardRun" ,"Yes"
 '©2020 Mesut Akcan
-'4/12/2020
+'8/12/2020
 'https://akcansoft.blogspot.com
 'makcan@gmail.com
 
@@ -305,6 +307,7 @@ End Sub
 'MappingInfo=Text1,Text1,-1,RightToLeft
 Public Property Get RightToLeft() As Boolean
 Attribute RightToLeft.VB_Description = "Determines text display direction and control visual appearance on a bidirectional system."
+Attribute RightToLeft.VB_ProcData.VB_Invoke_Property = "Yazi"
     RightToLeft = Text1.RightToLeft
 End Property
 
@@ -317,6 +320,7 @@ End Property
 'MappingInfo=Text1,Text1,-1,PasswordChar
 Public Property Get PasswordChar() As String
 Attribute PasswordChar.VB_Description = "Returns/sets a value that determines whether characters typed by a user or placeholder characters are displayed in a control."
+Attribute PasswordChar.VB_ProcData.VB_Invoke_Property = "Yazi"
     PasswordChar = Text1.PasswordChar
 End Property
 
@@ -416,6 +420,7 @@ End Property
 'MappingInfo=Text1,Text1,-1,MaxLength
 Public Property Get MaxLength() As Long
 Attribute MaxLength.VB_Description = "Returns/sets the maximum number of characters that can be entered in a control."
+Attribute MaxLength.VB_ProcData.VB_Invoke_Property = "Yazi"
     MaxLength = Text1.MaxLength
 End Property
 
@@ -428,6 +433,7 @@ End Property
 'MappingInfo=Text1,Text1,-1,Locked
 Public Property Get Locked() As Boolean
 Attribute Locked.VB_Description = "Determines whether a control can be edited."
+Attribute Locked.VB_ProcData.VB_Invoke_Property = "Yazi"
     Locked = Text1.Locked
 End Property
 
@@ -516,6 +522,7 @@ End Property
 'MappingInfo=Text1,Text1,-1,Enabled
 Public Property Get Enabled() As Boolean
 Attribute Enabled.VB_Description = "Returns/sets a value that determines whether an object can respond to user-generated events."
+Attribute Enabled.VB_ProcData.VB_Invoke_Property = "Yazi"
     Enabled = Text1.Enabled
 End Property
 
@@ -587,6 +594,7 @@ End Property
 'MappingInfo=Text1,Text1,-1,Text
 Public Property Get Metin() As String
 Attribute Metin.VB_Description = "Returns/sets the text contained in the control."
+Attribute Metin.VB_ProcData.VB_Invoke_Property = "Yazi"
     Metin = Text1.Text
 End Property
 

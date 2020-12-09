@@ -190,6 +190,10 @@ Begin VB.Form Form1
       _ExtentX        =   3625
       _ExtentY        =   661
       Metin           =   "superText9"
+      BackColor       =   16776960
+      ForeColor       =   16711680
+      BackColor       =   16776960
+      ForeColor       =   16711680
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
          Size            =   8.25
