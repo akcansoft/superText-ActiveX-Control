@@ -14,7 +14,7 @@ Begin VB.PropertyPage Yazi
       Left            =   3000
       List            =   "Yazi.pgx":0013
       Style           =   2  'Dropdown List
-      TabIndex        =   14
+      TabIndex        =   11
       Top             =   1400
       Width           =   1455
    End
@@ -22,7 +22,7 @@ Begin VB.PropertyPage Yazi
       Caption         =   "Yaslama"
       Height          =   735
       Left            =   3000
-      TabIndex        =   9
+      TabIndex        =   6
       Top             =   120
       Width           =   2775
       Begin VB.OptionButton optAlignment 
@@ -30,7 +30,7 @@ Begin VB.PropertyPage Yazi
          Height          =   375
          Index           =   2
          Left            =   1800
-         TabIndex        =   12
+         TabIndex        =   9
          Top             =   240
          Width           =   615
       End
@@ -39,7 +39,7 @@ Begin VB.PropertyPage Yazi
          Height          =   375
          Index           =   1
          Left            =   960
-         TabIndex        =   11
+         TabIndex        =   8
          Top             =   240
          Width           =   615
       End
@@ -48,7 +48,7 @@ Begin VB.PropertyPage Yazi
          Height          =   375
          Index           =   0
          Left            =   120
-         TabIndex        =   10
+         TabIndex        =   7
          Top             =   240
          Width           =   615
       End
@@ -56,53 +56,29 @@ Begin VB.PropertyPage Yazi
    Begin VB.TextBox txtMetin 
       Height          =   330
       Left            =   120
-      TabIndex        =   8
-      Top             =   375
-      Width           =   2700
-   End
-   Begin VB.CheckBox chkEnabled 
-      Caption         =   "Enabled"
-      Height          =   285
-      Left            =   120
-      TabIndex        =   6
-      Top             =   2520
-      Width           =   2700
-   End
-   Begin VB.CheckBox chkLocked 
-      Caption         =   "Locked"
-      Height          =   285
-      Left            =   120
       TabIndex        =   5
-      Top             =   2190
+      Top             =   375
       Width           =   2700
    End
    Begin VB.TextBox txtMaxLength 
       Height          =   330
       Left            =   120
-      TabIndex        =   4
+      TabIndex        =   3
       Top             =   1785
       Width           =   2700
    End
    Begin VB.TextBox txtPasswordChar 
       Height          =   330
       Left            =   120
-      TabIndex        =   2
+      TabIndex        =   1
       Top             =   1140
-      Width           =   2700
-   End
-   Begin VB.CheckBox chkRightToLeft 
-      Caption         =   "RightToLeft"
-      Height          =   285
-      Left            =   120
-      TabIndex        =   0
-      Top             =   2880
       Width           =   2700
    End
    Begin VB.Label lblGiris 
       Caption         =   "Giriþ kýtlamasý"
       Height          =   255
       Left            =   3000
-      TabIndex        =   13
+      TabIndex        =   10
       Top             =   1080
       Width           =   1455
    End
@@ -110,7 +86,7 @@ Begin VB.PropertyPage Yazi
       Caption         =   "Metin:"
       Height          =   240
       Left            =   120
-      TabIndex        =   7
+      TabIndex        =   4
       Top             =   120
       Width           =   2700
    End
@@ -118,7 +94,7 @@ Begin VB.PropertyPage Yazi
       Caption         =   "MaxLength:"
       Height          =   240
       Left            =   120
-      TabIndex        =   3
+      TabIndex        =   2
       Top             =   1545
       Width           =   2700
    End
@@ -126,7 +102,7 @@ Begin VB.PropertyPage Yazi
       Caption         =   "PasswordChar:"
       Height          =   240
       Left            =   120
-      TabIndex        =   1
+      TabIndex        =   0
       Top             =   885
       Width           =   2700
    End
@@ -137,6 +113,7 @@ Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = True
 Dim i_Alignment As Byte
+'
 
 Private Sub cmbGiris_Click()
     Changed = True
@@ -151,14 +128,6 @@ Private Sub txtMetin_Change()
     Changed = True
 End Sub
 
-Private Sub chkEnabled_Click()
-    Changed = True
-End Sub
-
-Private Sub chkLocked_Click()
-    Changed = True
-End Sub
-
 Private Sub txtMaxLength_Change()
     Changed = True
 End Sub
@@ -167,30 +136,19 @@ Private Sub txtPasswordChar_Change()
     Changed = True
 End Sub
 
-Private Sub chkRightToLeft_Click()
-    Changed = True
-End Sub
-
 Private Sub PropertyPage_ApplyChanges()
     SelectedControls(0).Metin = txtMetin.Text
-    SelectedControls(0).Enabled = (chkEnabled.Value = vbChecked)
-    SelectedControls(0).Locked = (chkLocked.Value = vbChecked)
     SelectedControls(0).MaxLength = txtMaxLength.Text
     SelectedControls(0).PasswordChar = txtPasswordChar.Text
-    SelectedControls(0).RightToLeft = (chkRightToLeft.Value = vbChecked)
     SelectedControls(0).Alignment = i_Alignment
     SelectedControls(0).Giris = cmbGiris.ListIndex
 End Sub
 
 Private Sub PropertyPage_SelectionChanged()
     txtMetin.Text = SelectedControls(0).Metin
-    chkEnabled.Value = (SelectedControls(0).Enabled And vbChecked)
-    chkLocked.Value = (SelectedControls(0).Locked And vbChecked)
     txtMaxLength.Text = SelectedControls(0).MaxLength
     txtPasswordChar.Text = SelectedControls(0).PasswordChar
-    chkRightToLeft.Value = (SelectedControls(0).RightToLeft And vbChecked)
     optAlignment(SelectedControls(0).Alignment).Value = True
     cmbGiris.ListIndex = SelectedControls(0).Giris
 End Sub
-
 

@@ -1,13 +1,10 @@
 Type=Exe
 Form=Form1.frm
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\WINDOWS\system32\stdole2.tlb#OLE Automation
-Object={A4D9C9FE-CE7A-4557-8FF6-79FB015C0670}#1.0#0; superText.ocx
+Object=*\ASuperTextKontrol.vbp
 IconForm="Form1"
 Startup="Form1"
 HelpFile=""
-NoControlUpgrade=1
-Title="Test"
-ExeName32="Test.exe"
 Command32=""
 Name="Test"
 HelpContextID="0"
@@ -33,7 +30,6 @@ Unattended=0
 Retained=0
 ThreadPerObject=0
 MaxNumberOfThreads=1
-DebugStartupOption=0
 
 [MS Transaction Server]
 AutoRefresh=1

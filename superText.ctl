@@ -1,20 +1,29 @@
 VERSION 5.00
 Begin VB.UserControl superText 
-   ClientHeight    =   3210
+   ClientHeight    =   2835
    ClientLeft      =   0
    ClientTop       =   0
    ClientWidth     =   4170
    DataSourceBehavior=   1  'vbDataSource
    PropertyPages   =   "superText.ctx":0000
-   ScaleHeight     =   3210
+   ScaleHeight     =   2835
    ScaleWidth      =   4170
    Begin VB.TextBox Text1 
       Height          =   495
       Left            =   0
       TabIndex        =   0
       Text            =   "Text1"
-      Top             =   0
+      Top             =   360
       Width           =   1695
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      Caption         =   "Label1"
+      Height          =   195
+      Left            =   0
+      TabIndex        =   1
+      Top             =   0
+      Width           =   480
    End
 End
 Attribute VB_Name = "superText"
@@ -23,8 +32,8 @@ Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = True
 Attribute VB_Ext_KEY = "PropPageWizardRun" ,"Yes"
-'©2020 Mesut Akcan
-'9/12/2020
+'©2021 Mesut Akcan
+'3/1/2021
 'https://akcansoft.blogspot.com
 'makcan@gmail.com
 
@@ -84,19 +93,20 @@ Enum e_OLEDropMode
     Manual
     Automatic
 End Enum
-'Enum e_ScrollBars
-'    None
-'    Horizontal
-'    Vertical
-'    Both
-'End Enum
+Enum e_lblPosition
+    Top
+    Left
+    Right
+End Enum
 
 'Default Property Values:
+Const m_def_LabelPosition = 0
 Const m_def_Giris = 0
 Const m_def_OdakZeminRengi = vbWindowBackground
 Const m_def_OdakYaziRengi = vbWindowText
 
 'Property Variables:
+Dim m_LabelPosition As Variant
 Dim m_Giris As e_Giris
 Dim m_OdakZeminRengi As OLE_COLOR
 Dim m_OdakYaziRengi As OLE_COLOR
@@ -134,16 +144,56 @@ Private Sub UserControl_InitProperties()
     m_Giris = m_def_Giris
     m_OdakZeminRengi = m_def_OdakZeminRengi 'odak zemin rengine varsayýlan deðeri ata
     m_OdakYaziRengi = m_def_OdakYaziRengi 'odak yazý rengine varsayýlan deðeri ata
+    m_LabelPosition = m_def_LabelPosition
 End Sub
 
 Private Sub UserControl_Resize()
+Dim px As Integer
 With Text1
-    'Text1'in boyutunu eklenen kontrol'a eþitle
-    .Height = UserControl.ScaleHeight
-    .Width = UserControl.ScaleWidth
+    .Top = 0
+    .Left = 0
 End With
+If LabelVisible = True Then
+    px = Screen.TwipsPerPixelY * 3 '3px
+    Select Case LabelPosition 'Label konumu
+        Case e_lblPosition.Top 'Label üstte
+            With Text1
+                .Top = Label1.Height + px
+                .Height = UserControl.ScaleHeight - Label1.Height - px
+                .Width = UserControl.ScaleWidth
+                With Label1
+                    .Top = 0
+                    .Left = 0
+                End With
+            End With
+        Case e_lblPosition.Left 'Label solda
+            px = Screen.TwipsPerPixelX * 3
+            With Text1
+                .Left = Label1.Width + px
+                .Height = UserControl.ScaleHeight
+                .Width = UserControl.ScaleWidth - Label1.Width - px
+                With Label1
+                    .Top = UserControl.ScaleHeight / 2 - (.Height / 2)
+                    .Left = 0
+                End With
+            End With
+        Case e_lblPosition.Right 'Label saðda
+            With Text1
+                .Height = UserControl.ScaleHeight
+                .Width = UserControl.ScaleWidth - Label1.Width - px
+                With Label1
+                    .Top = UserControl.ScaleHeight / 2 - (.Height / 2)
+                    .Left = Text1.Width + px
+                End With
+            End With
+    End Select
+Else
+    With Text1
+        .Height = UserControl.ScaleHeight
+        .Width = UserControl.ScaleWidth
+    End With
+End If
 End Sub
-
 Private Sub Text1_GotFocus()
     gZeminRengi = Text1.BackColor
     gYaziRengi = Text1.ForeColor
@@ -229,6 +279,9 @@ Public Sub UserControl_ReadProperties(PropBag As PropertyBag)
     m_Giris = PropBag.ReadProperty("Giris", m_def_Giris)
     m_OdakZeminRengi = PropBag.ReadProperty("OdakZeminRengi", m_def_OdakZeminRengi)
     m_OdakYaziRengi = PropBag.ReadProperty("OdakYaziRengi", m_def_OdakYaziRengi)
+    Label1.Caption = PropBag.ReadProperty("Caption", "Label1")
+    m_LabelPosition = PropBag.ReadProperty("LabelPosition", m_def_LabelPosition)
+    Label1.Visible = PropBag.ReadProperty("LabelVisible", False)
 End Sub
 
 Public Sub UserControl_WriteProperties(PropBag As PropertyBag)
@@ -260,6 +313,9 @@ Public Sub UserControl_WriteProperties(PropBag As PropertyBag)
     Call PropBag.WriteProperty("Giris", m_Giris, m_def_Giris)
     Call PropBag.WriteProperty("OdakZeminRengi", m_OdakZeminRengi, m_def_OdakZeminRengi)
     Call PropBag.WriteProperty("OdakYaziRengi", m_OdakYaziRengi, m_def_OdakYaziRengi)
+    Call PropBag.WriteProperty("Caption", Label1.Caption, "Label1")
+    Call PropBag.WriteProperty("LabelPosition", m_LabelPosition, m_def_LabelPosition)
+    Call PropBag.WriteProperty("LabelVisible", Label1.Visible, False)
 End Sub
 
 '
@@ -291,17 +347,6 @@ End Property
 Private Sub Text1_Change()
     RaiseEvent Change
 End Sub
-
-'WARNING! DO NOT REMOVE OR MODIFY THE FOLLOWING COMMENTED LINES!
-'MappingInfo=Text1,Text1,-1,ScrollBars
-'Public Property Get ScrollBars() As e_ScrollBars
-'    ScrollBars = Text1.ScrollBars
-'End Property
-'
-'Public Property Let ScrollBars(ByVal New_ScrollBars As e_ScrollBars)
-'    Text1.ScrollBars() = New_ScrollBars
-'    PropertyChanged "ScrollBars"
-'End Property
 
 'WARNING! DO NOT REMOVE OR MODIFY THE FOLLOWING COMMENTED LINES!
 'MappingInfo=Text1,Text1,-1,RightToLeft
@@ -372,17 +417,6 @@ End Property
 Private Sub Text1_OLECompleteDrag(Effect As Long)
     RaiseEvent OLECompleteDrag(Effect)
 End Sub
-
-'WARNING! DO NOT REMOVE OR MODIFY THE FOLLOWING COMMENTED LINES!
-'MappingInfo=Text1,Text1,-1,MultiLine
-'Public Property Get MultiLine() As Boolean
-'    MultiLine = Text1.MultiLine
-'End Property
-
-'Public Property Let MultiLine(ByVal New_MultiLine As Boolean)
-'    Text1.MultiLine() = New_MultiLine
-'    PropertyChanged "MultiLine"
-'End Property
 
 Private Sub Text1_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
     RaiseEvent MouseUp(Button, Shift, X, Y)
@@ -646,3 +680,40 @@ Attribute Hakkinda.VB_Description = "superText ActiveX kontrol hakkýnda"
 Attribute Hakkinda.VB_UserMemId = -552
     frmAbout.Show vbModal
 End Sub
+'WARNING! DO NOT REMOVE OR MODIFY THE FOLLOWING COMMENTED LINES!
+'MappingInfo=Label1,Label1,-1,Caption
+Public Property Get Caption() As String
+Attribute Caption.VB_Description = "Returns/sets the text displayed in an object's title bar or below an object's icon."
+    Caption = Label1.Caption
+End Property
+
+Public Property Let Caption(ByVal New_Caption As String)
+    Label1.Caption() = New_Caption
+    PropertyChanged "Caption"
+End Property
+
+'WARNING! DO NOT REMOVE OR MODIFY THE FOLLOWING COMMENTED LINES!
+'MemberInfo=14,0,0,0
+Public Property Get LabelPosition() As e_lblPosition
+    LabelPosition = m_LabelPosition
+End Property
+
+Public Property Let LabelPosition(ByVal New_LabelPosition As e_lblPosition)
+    m_LabelPosition = New_LabelPosition
+    PropertyChanged "LabelPosition"
+    UserControl_Resize
+End Property
+
+'WARNING! DO NOT REMOVE OR MODIFY THE FOLLOWING COMMENTED LINES!
+'MappingInfo=Label1,Label1,-1,Visible
+Public Property Get LabelVisible() As Boolean
+Attribute LabelVisible.VB_Description = "Returns/sets a value that determines whether a control expands to fit the text in its Caption."
+    LabelVisible = Label1.Visible
+End Property
+
+Public Property Let LabelVisible(ByVal New_LabelVisible As Boolean)
+    Label1.Visible() = New_LabelVisible
+    PropertyChanged "LabelVisible"
+    UserControl_Resize
+End Property
+
